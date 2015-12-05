@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+  // todo
 $('#goods').click(function () {
   $.get('http://api.mipinr.com/items',function(data){
     var content='';
