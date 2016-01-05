@@ -9,15 +9,17 @@
     <br/>
     <br/>
     <br/>
-    <br/>  
+    <br/>
     <h1><%= title %></h1>
     <p>Users to <%= title %></p>
 
     <ul>
-      <% users.forEach(function(user){ %>
-        <li><%= user.username %></li>
-      <% }) %>
-    </ul>
+   <% users.forEach(function(user){ %>
+    <li>aa<%= user.username%></li>
+   <% }) %>
+</ul>
 
+
+     <% include partials/footer %>
   </body>
 </html>

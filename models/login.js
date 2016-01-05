@@ -1,16 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('User', {
+  return sequelize.define('Login', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
-    username: DataTypes.STRING, //标题
-    password: DataTypes.STRING,
+    username: DataTypes.TEXT, //标题
+    password: DataTypes.TEXT,
     gender: DataTypes.INTEGER,
-    age: DataTypes.INTEGER,
-    information: DataTypes.TEXT
+    age: DataTypes.INTEGER
   }, {
-    tableName: 'user', // this will define the table's name
+    tableName: 'login', // this will define the table's name
     timestamps: true, // this will deactivate the timestamp columns
 
   });

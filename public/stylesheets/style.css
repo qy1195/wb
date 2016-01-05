@@ -1,52 +1,23 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-ul{
-  float: left;
+.panel{
+  width: 480px;
+  margin-left: 480px;
 }
-#content li{
-  list-style-type: none;
-  float: left;
-  width: 301px;
-  height: 361px;
-  border: 1px solid #ededed;
-  text-align: center;
-}
-#content li a:hover{
-  text-decoration: none;
-}
-.show{
-	list-style-type: none;
-	position: relative;
-	overflow: hidden;
-	margin: 0;
-    padding: 0;
-    z-index: 100000;
-}
-img{
-  width: 280px;
-  height: 280px;
-  top: 0px;
-}
-.tit{
-	border: 1px solid blue;
-	background: blue;
-	text-align: left;
-	width: 280px;
-	position: absolute;
-	height: 70px;
-	margin: 0;
-    padding: 0;
-}
-.info{
+.panel-group{
   margin-top: 20px;
-  width: 280px;
-  height: 51px;
 }
-strong{
-  color: red;
+#headingOne{
+    color: #31708f;
+    background-color: #d9edf7;
 }
-#discount{
-  margin-left: 150px;
+.panel-title{
+  font-size: 12px;
+}
+.answer{
+  line-height: 30px;
+}
+form{
+  text-align: center;
 }

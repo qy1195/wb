@@ -9,16 +9,15 @@
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
   <body>
     <% include nav %>
-    <% items.forEach(function(item){ %>
-      <% include content %>
-      <% })%>
+    <% answers.forEach(function(answer){ %>
+      <div class="text-center">
+
+          <%= answer.title %>
+      </div>
+
+    <% })%>
   </body>
 </html>
