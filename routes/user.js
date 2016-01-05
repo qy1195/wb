@@ -106,27 +106,24 @@ router.get('/my', function(req, res, next) {
   });
 });
 
-// /user/my post
-// router.post('/my', function(req, res, next) {
-//   db.User.findAll({
-//       where: {
-//         username: req.body.username
-//       }
-//     })
-//     .then(function(user) {
-//       var affectedRows = db.User.update({
-//         username: req.boay.username,
-//         password: req.body.password
-//       }, {
-//         'where': {
-//           'userId': 232
-//         }
-//       });
-//       console.log(req.boay.username);
-//       console.log(1111);
-//     });
-//
-// });
+//  /user/my Post
+router.post('/my', function(req, res, next) {
+  db.User.update({
+    username: req.body.username,
+    password: req.body.password,
+    information: req.body.information
+  }, {
+    'where': {
+      'id': 4
+    }
+  }).then(function(user) {
+    console.log(req.body.username);
+    console.log(user);
+    console.log(111);
+    res.redirect('/home');
+  });
+
+});
 //   增加数据
 // var user = db.User.create({
 //   'id':4,
@@ -149,6 +146,32 @@ router.get('/my', function(req, res, next) {
 //         }
 //     }
 // );
+
+
+// db.User.bulkCreate([{
+//   subject: 'programming',
+//   status: 'executing'
+// }, {
+//   subject: 'reading',
+//   status: 'executing'
+// }, {
+//   subject: 'programming',
+//   status: 'finished'
+// }]).then(function() {
+//   return db.user.destroy({
+//     where: {
+//       subject: 'programming'
+//     },
+//     truncate: true /* this will ignore where and truncate the table instead */
+//   });
+// }).then(function(affectedRows) {
+//   // affectedRows will be 2
+//   return db.user.findAll();
+// }).then(function(users) {
+//   console.log(users) // no programming, just reading :(
+// })
+
+
 
 module.exports = router;
 /*router.get('/', function(req, res, next) {
