@@ -20,20 +20,22 @@
   <ol class="breadcrumb">
     <li><a href="#">个人账号设置</a></li>
   </ol>
-  <div class="">
-    <% my.forEach(function(user){ %>
-      <%=user.username%>
-      <% }) %>
-  </div>
   <form class="" action="/user/my" method="post">
     <p>
-      username:<input type="text" name="username" value="">
+      username:
+      <input type="text" name="username" value="<%=my.username%>">
     </p>
     <p>
-      password:<input type="text" name="password" value="">
+      password:
+      <input type="text" name="password" value="<%=my.password%>">
     </p>
     <p>
-      information:<input type="text" name="information" value="">
+      information:
+      <input type="text" name="information" value="">
+    </p>
+    <p>
+      age:
+      <input type="text" name="" value="">
     </p>
     <input type="submit" name="name" value="修改">
   </form>

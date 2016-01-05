@@ -83,7 +83,11 @@ router.post('/login', function(req, res, next) {
         console.log(err);
       } else {
         res.cookie('username', req.body.username);
+        res.cookie('password', req.body.password);
         res.cookie('userId', 232);
+        res.cookie('id', user[0].id)
+
+        console.log(user[0].id);
         console.log(112111);
         res.redirect('/home');
       }
@@ -98,7 +102,7 @@ router.post('/login', function(req, res, next) {
 
 // /user/my get
 router.get('/my', function(req, res, next) {
-  db.User.findAll().then(function(users) {
+  db.User.findOne({ where: {id: req.cookies.id} }).then(function(users) {
     res.render('my', {
       my: users,
       title: 'Express'
@@ -108,19 +112,20 @@ router.get('/my', function(req, res, next) {
 
 //  /user/my Post
 router.post('/my', function(req, res, next) {
-  db.User.update({
-    username: req.body.username,
-    password: req.body.password,
-    information: req.body.information
-  }, {
-    'where': {
-      'id': 4
-    }
-  }).then(function(user) {
-    console.log(req.body.username);
-    console.log(user);
-    console.log(111);
-    res.redirect('/home');
+  db.User.findOne().then(function() {
+    db.User.update({
+      username: req.body.username,
+      password: req.body.password,
+      information: req.body.information,
+      age: req.body.age
+    }, {
+      'where': {
+        'id': req.cookies.id
+      }
+    }).then(function(user) {
+      console.log(111);
+      res.redirect('/home');
+    });
   });
 
 });
@@ -147,20 +152,20 @@ router.post('/my', function(req, res, next) {
 //     }
 // );
 
-
+//  删除了数据库的所有数据
 // db.User.bulkCreate([{
-//   subject: 'programming',
+//   information: req.body.information,
 //   status: 'executing'
 // }, {
 //   subject: 'reading',
 //   status: 'executing'
 // }, {
-//   subject: 'programming',
+//   information: req.body.information,
 //   status: 'finished'
 // }]).then(function() {
-//   return db.user.destroy({
+//   return db.User.destroy({
 //     where: {
-//       subject: 'programming'
+//       information: req.body.information
 //     },
 //     truncate: true /* this will ignore where and truncate the table instead */
 //   });
@@ -170,8 +175,6 @@ router.post('/my', function(req, res, next) {
 // }).then(function(users) {
 //   console.log(users) // no programming, just reading :(
 // })
-
-
 
 module.exports = router;
 /*router.get('/', function(req, res, next) {
