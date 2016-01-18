@@ -19,12 +19,32 @@ var db = require('../models');
 //
 // });
 router.get('/:itemId', function(req, res, next) {
-  console.log( req.params.itemId);
-  db.Answer.findAll({where: {itemId: req.params.itemId}}).then(function (answers) {
-    res.render('answer', { answers: answers});
+  console.log(req.params.itemId);
+  db.Answer.findAll({
+    where: {
+      itemId: req.params.itemId
+    }
+  }).then(function(answers) {
+    res.render('answer', {
+      answers: answers
+    });
     // res.json(answers);
   });
 
+});
+
+// router/answer/Post
+router.post('/answer/1', function(req, res, next) {
+  db.Answer.create({
+    'id':4,
+    'article': req.body.article
+  }).then(function() {
+    res.json({
+      msg: 'success'
+    });
+  });
+  console.log(req.body.article);
+  console.log(111);
 });
 
 module.exports = router;

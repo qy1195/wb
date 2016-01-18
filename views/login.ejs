@@ -31,6 +31,7 @@
 
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 
 <body screen_capture_injected="true">
@@ -76,7 +77,23 @@
       </fieldset>
     </form>
   </div>
+  <div ng-app="myApp" ng-controller="customersCtrl">
 
+  <ul>
+    <li ng-repeat="x in users">
+      {{ x}}
+    </li>
+  </ul>
+
+  </div>
+
+  <script>
+  var app = angular.module('myApp', []);
+  app.controller('customersCtrl', function($scope, $http) {
+      $http.get("http://localhost:9000/users")
+      .success(function(response) {$scope.users = response.records;});
+  });
+  </script>
 </body>
 </head>
 

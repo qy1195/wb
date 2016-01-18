@@ -17,7 +17,13 @@ var logout = require('./routes/logout');
 var home = require('./routes/home');
 
 var users = require('./routes/users');
-
+var answer = require('./routes/answer');
+var createAnswer = require('./routes/create-answer');
+var deleteAnswer = require('./routes/delete-answer');
+var getQuestions = require('./routes/get-questions');
+var getQuestion = require('./routes/get-question');
+var getAnswers = require('./routes/get-answers');
+var getAnswer = require('./routes/get-answer');
 
 var db = require('./models');
 
@@ -83,6 +89,20 @@ app.use('/answer', answer);
 app.use('/logout', logout);
 app.use('/home', home);
 app.use('/users', users);
+
+app.get('/getUserById', function (req, res) {
+    res.json([{ user: 'tobi' }])
+});
+
+app.post('/create-answer', createAnswer);
+app.post('/delete-answer', deleteAnswer);
+
+app.get('/answers', getQuestions);
+app.get('/questions', getQuestions);
+app.get('/questions/:questionId', getQuestion);
+app.get('/questions/:questionId/answers', getAnswers);
+app.get('/questions/:questionId/answers/:answerId', getAnswer);
+
 
 // app.post('/user', function (req, res) {
 //   console.log(req.body);

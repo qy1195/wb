@@ -1,32 +1,46 @@
+$(document).ready(function() {
 
-$(document).ready(function(){
-  // todo
-$('#goods').click(function () {
-  $.get('http://api.mipinr.com/items',function(data){
-    var content='';
-    for (var i = 0; i < data.length; i++)
-    {
-    content=content+'<li>'+
-    '<a href=" '+data[i].itemUrl+' "><div class="show"><img src=" '+data[i].picUrl+'" alt=""/ style="top:0;"><div class="tit" style="top:100%;"><p>'+ data[i].title +'</p></div></div><div class="info"><strong>¥'+data[i].promoPrice+'</strong><del>¥'+data[i].originPrice+'</del><span id="discount">'+data[i].discount+'折</span></div></a>'+
-    '</li>'
-    }
-    console.log(content);
-    var ul = '<ul>'
-      + content
-      + '</ul>';
-    $('#content').html(ul);
+  // $("#btn0").click(function() {
+  //   $("#hhhh").prepend("<input type='text' name='article' value='' id='art'><input type='text' name='title' value='' id='art1'>");
+  // });
+  // $("#btn01").click(function() {
+  //   $("#hhhh").empty()
+  // });
+  $("#btn02").click(function() {
+    var str = location.href;
+
+    $.post("/create-answer", {
+        article: document.getElementById("art").value,
+        // title: document.getElementById("art1").value,
+        itemId: str.slice(29)
+
+      })
+      .done(function(msg) {
+        window.location.assign(location.href);
+      });
   });
-});
-	$('.show').mouseenter(function(){
-		$('.show').animate({top:'-10px'});
-		$('.tit').animate({
-			top:'75%'
-		});
-	});
-	$('.show').mouseleave(function(){
-		$('.show').animate({top:'0px'});
-		$('.tit').animate({
-			top:'100%'
-		});
-	});
+  $(".close").click(function() {
+    var str1 = $(this).text()
+    var str = $(this).attr('class')
+    console.log(str1.slice(1));
+    console.log(location);
+    console.log(1441);
+    console.log($(this).attr('class'));
+    console.log(str.slice(6));
+
+    $.post("/delete-answer", {
+
+        id: str.slice(6)
+          // title: document.getElementById("art1").value,
+          // itemId: str.slice(29)
+
+      })
+      .done(function(msg) {
+        window.location.assign(location.href);
+      });
+  });
+
+$http.get('/json').success(function(data){
+
+})
 });

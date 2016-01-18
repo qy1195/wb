@@ -1,23 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title></title>
 
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <% include nav %>
-    <% answers.forEach(function(answer){ %>
-      <div class="text-center">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title></title>
 
-          <%= answer.title %>
-      </div>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 
-    <% })%>
-  </body>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <% include nav %>
+
+    <form class="cla">
+      <% answers.forEach(function(answer){ %>
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="width: 480px;margin: 0 auto;">
+          <div class="panel panel-default" style="width: 480px;margin: 0 auto;">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <%= answer.title %>
+
+
+                  <!-- <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  </a> -->
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" style="width: 480px;margin: 0 auto;">
+              <div class="panel-body">
+                <%= answer.article %>
+                  <!-- <input type="button" name="article" value="删" class="btn03"> -->
+                  <!-- <button type="button" name="button" class="btn03 <%= answer.id %>">删</button> -->
+                  <!-- <button type="button" name="button" class="btn03 <%= answer.id %>">删<span style="display:none"><%= answer.id %></span></button> -->
+                  <!-- <input type="hidden" name="name" value="<%= answer.id %>" class="ddd"> -->
+                  <button type="button" class="close <%= answer.id %>" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              </div>
+            </div>
+          </div>
+
+
+
+          <% })%>
+            <div class="" id="hhhh">
+              <textarea class="form-control" rows="3" name='article' value='' id='art'></textarea>
+              <!-- <input type='text' name='article' value='' id='art'> -->
+              <input type="button" name="article" value="发表" id="btn02">
+            </div>
+            <!-- <input type="button" name="article" value="增加" id="btn0">
+            <input type="button" name="article" value="删除" id="btn01"> -->
+
+
+
+    </form>
+
+
+
+    <script src="/javascripts/app.js" charset="utf-8"></script>
+</body>
+
 </html>

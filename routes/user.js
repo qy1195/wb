@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
 
 });
 
-
 // /user/register
 router.get('/register', function(req, res, next) {
   res.render('register', {

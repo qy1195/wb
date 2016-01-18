@@ -20,5 +20,10 @@
     <% items.forEach(function(item){ %>
       <% include content %>
       <% })%>
+      <form id="text_form" action="/users" method="post">
+        用户名:<input type="text" id="UserName" name="username">
+        密码:<input type="password" id="UserPwd" name="password">
+        <input type="submit" value="提交">
+      </form>
   </body>
 </html>
