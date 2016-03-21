@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>乱起八糟</title>
+  <style type="text/css">
+    input {
+      background: white;
+    }
+
+    .hhh {
+      background: yellow;
+    }
+
+    #v1,
+    #v2,
+    #v3 {
+      width: 100%;
+      height: 700px;
+      background: red;
+      display: none;
+    }
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    #div1 {
+      text-align: center;
+    }
+
+    ul {
+      width: 100% text-align: center;
+    }
+  </style>
+
+  <!-- 新 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <input id="hh" type="button" value="1111" />
+  <input id="hhh" type="button" value="2222" />
+  <input id="hhhhh" type="button" value="3333" />
+  <div id="v1" style="display:block;">11111</div>
+  <div id="v2">22222</div>
+  <div id="v3">33333</div>
+  <footer>
+    <div id='div1' style="display:block;">
+      <p>居中的效果就好</p>
+      <p>居中的效果就好</p>
+      <p>居中的效果就好</p>
+      <ul>
+        <li>倒萨大师的</li>
+        <li>多大的</li>
+        <li>颠三倒四</li>
+        <li>的单位单位</li>
+        <li>二位</li>
+        <li>为单位单位</li>
+        <li>我的文档</li>
+        <li>我的文档</li>
+        <li>我的文档</li>
+      </ul>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+  <!--browser-sync start --server --files "**/*.css, **/*.html,**/*.js" -->
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#hh").click(function() {
+        $('#v1').css({
+          'display': 'block'
+        });
+        $('#v2').css({
+          'display': 'none'
+        });
+        $('#v3').css({
+          'display': 'none'
+        });
+      });
+      $("#hhh").click(function() {
+        $('#v2').css({
+          'display': 'block'
+        });
+        $('#v1').css({
+          'display': 'none'
+        });
+        $('#v3').css({
+          'display': 'none'
+        });
+      });
+      $("#hhhhh").click(function() {
+        $('#v3').css({
+          'display': 'block'
+        });
+        $('#v1').css({
+          'display': 'none'
+        });
+        $('#v2').css({
+          'display': 'none'
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
