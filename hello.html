@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>内容换页</title>
+  <style type="text/css">
+    input {
+      background: white;
+    }
+
+    .hhh {
+      background: yellow;
+    }
+
+    div {
+      width: 100%;
+      height: 700px;
+      background: red;
+      display: none;
+    }
+  </style>
+
+  <!-- 新 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <input class="hhh" type="button" value="1111" />
+  <input type="button" value="2222" />
+  <input type="button" value="3333" />
+  <div style="display:block;">11111</div>
+  <div>22222</div>
+  <div>33333</div>
+
+
+
+
+
+
+
+
+  <!--browser-sync start --server --files "**/*.css, **/*.html,**/*.js" -->
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var aBtn = document.getElementsByTagName('input')
+      var aDiv = document.getElementsByTagName('div')
+      var i = 0;
+      for (var i = 0; i < aBtn.length; i++) {
+        aBtn[i].index = i;
+        $(aBtn[i]).click(function() {
+          for (var i = 0; i < aBtn.length; i++) {
+            $(aBtn[i]).removeClass();
+            $(aDiv[i]).css({
+              'display': 'none'
+            });
+          };
+          $(aDiv[this.index]).css({
+            'display': 'block'
+          });
+          $(this).addClass('hhh');
+        });
+
+      };
+    });
+  </script>
+</body>
+
+</html>
