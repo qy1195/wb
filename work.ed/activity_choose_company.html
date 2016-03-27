@@ -1,0 +1,39 @@
+function buildCompanyListLayout() {
+	$("#company_list_layout").empty();
+	var length = companyList.length;
+	if (length > 0) {
+		$("#choose_company_helper").text("恭喜获得以下企业面试资格，请选择");
+	} else {
+		$("#choose_company_helper").text("很遗憾您没有获得任何企业的面试资格，请再接再厉！");
+	}
+	var html = [];
+	for (var i = 0; i < length; i++) {
+		if (i%3 == 0) {
+			html.push('<div class="row" style="margin-top:30px;">');
+		}
+		html.push('<div class="col-md-4 col-sm-4 col-xs-4" style="margin-left:15px;margin-right:15px;padding-left:0;padding-right:0;border:1px solid #ccc;background-color:#EEE;">');
+		html.push('<div style="height:40px;line-height:40px;color:#666;font-size:16px;"><span style="margin-left:20px;">'+companyList[i].companyName+'</span></div>');
+		html.push('<div style="height:200px;background-color:#FFF;margin:0 1px 1px 1px;">');
+		html.push('<div style="margin-left:20px;font-size:18px;color:#3E8ACC;padding-top:25px;">'+companyList[i].postInfo.postName+'</div>')
+		html.push('<div style="margin-left:20px;padding-top:25px;">分数线：'+companyList[i].score+'分</div>')
+		html.push('<div style="padding-top:25px;margin-left:20px;margin-right:20px;font-size:16px;">');
+		html.push('<span style="height:44px;line-height:44px;cursor:pointer;" href="'+companyList[i].postInfo.postUrl+'" class="flr" onclick="jobInfoShow('+i+');">查看职位详情</span>');
+		if (companyList[i].isDelivery == 1) {
+			html.push('<button type="button" class="btn_edaice blue_btn_background btn btn-default" style="font-size:16px;width:140px;height:44px;" disabled>已申请面试</button>');
+		} else {
+			html.push('<button type="button" class="btn_edaice blue_btn_background btn btn-default" style="font-size:16px;width:140px;height:44px;" companyPostId="'+companyList[i].postInfo.postId+'" onclick="commitResume(this);"><span>我要面试</span></button>');
+		}
+		html.push('</div>');
+		html.push('</div>');
+
+		html.push('</div>');
+
+		if ((i+1)%3 == 0) {
+			html.push('</div>')
+		}
+	}
+	if ((companyList.length)%3 != 0) {
+		html.push('</div>');
+	}
+	$("#company_list_layout").html(html.join(""));
+}
